@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import LoginContainer from '../../../containers/signIn/signIn';
 
-class Login extends Component {
+class SignIn extends Component {
   render() {
     return (
       <div>
@@ -12,4 +12,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default SignIn;

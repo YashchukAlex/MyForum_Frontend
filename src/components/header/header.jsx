@@ -1,9 +1,10 @@
 import React, {Component,Fragment} from 'react';
-import {Navbar,Nav,Image, Button} from "react-bootstrap";
+import {Navbar,Nav,Image} from "react-bootstrap";
 
-import logo from '../../../content/logo.svg'
+import logo from '../../../content/logo.svg';
+import ButtonUserName from '../../../containers/header/userInfo';
 
-class Footer extends Component {
+class Header extends Component {
   render() {
     return (
       <Fragment>
@@ -20,9 +21,7 @@ class Footer extends Component {
             <Nav.Link href="pricing">Pricing</Nav.Link>
           </Nav>
           <Nav.Item className="align-content-end">
-            <Button className="btn-light">
-              Button
-            </Button>
+            <ButtonUserName/>
           </Nav.Item>
         </Navbar>
       </Fragment>
@@ -30,4 +29,4 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+export default Header;

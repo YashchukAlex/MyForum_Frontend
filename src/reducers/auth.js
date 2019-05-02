@@ -3,12 +3,10 @@ import * as Const from '../constants/auth';
 const initialState = {
   loading: false,
   loaded: false,
-  error: {},
-  token: {}
+  data: {}
 };
 
 const auth = (state = initialState, { response, error, type }) => {
-  console.log(`response = ${response}, error = ${error}`);
   switch (type) {
     case Const.SIGNIN_REQUEST:
       return {
@@ -21,14 +19,14 @@ const auth = (state = initialState, { response, error, type }) => {
         ...state,
         loading: false,
         loaded: true,
-        token: response
+        data: response
       };
     case Const.SIGNIN_FAILURE:
       return {
         ...state,
         loading: false,
         loaded: false,
-        error: error
+        error
       };
     case Const.SIGNOUT_REQUEST:
       return {
@@ -47,7 +45,7 @@ const auth = (state = initialState, { response, error, type }) => {
         ...state,
         loading: false,
         loaded: false,
-        error: error
+        error
       };
     default:
       return state;

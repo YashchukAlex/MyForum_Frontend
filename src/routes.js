@@ -1,18 +1,23 @@
-import React, {Component, Fragment} from 'react';
-import {Route} from 'react-router-dom';
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import UserApp from "./components/userApp/userApp";
 import UserHome from "./components/userApp/home/home";
-import UserLogin from "./components/userApp/signIn/signIn";
+import SingIn from "./components/signIn/signIn";
+import SignUp from "./components/signUp/signUp";
+import UserProfile from './components/userProfile/userProfile';
+import NotFound from "./components/errors/404/404.jsx";
 
 class Routes extends Component {
   render() {
     return (
-      <Fragment>
-        <Route exact path='/' render={()=><UserApp><UserHome/></UserApp>}/>
-        <Route path='/home' render={()=><UserApp><UserHome/></UserApp>}/>
-        <Route path='/login' component={UserLogin}/>
-      </Fragment>
+      <Switch>
+        <Route exact path="/" component={UserHome}/>
+        <Route path="/home" component={UserHome}/>
+        <Route path="/sign-in" component={SingIn}/>
+        <Route path="/sign-up" component={SignUp}/>
+        <Route path="/profile" component={UserProfile}/>
+        <Route component={NotFound}/>
+      </Switch>
     );
   }
 }

@@ -5,7 +5,7 @@ import {signUp, signIn} from '../api/auth';
 
 function* signUpFlow(action) {
   try {
-    const response = yield call(signUp, {action});
+    const response = yield call(signUp, action);
     yield put({
       type: Const.SIGNUP_SUCCESS,
       response
@@ -18,12 +18,10 @@ function* signUpFlow(action) {
   }
 }
 
-function updateToken(token) {
+const updateToken = (token) => {
   if (token) {
-    console.info('Saving a token...');
     localStorage.setItem(Const.TOKEN_NAME, token);
   } else {
-    console.info('Removing a token...');
     localStorage.removeItem(Const.TOKEN_NAME);
   }
 }
@@ -52,6 +50,7 @@ function* signOutFlow() {
       type: Const.SIGNOUT_SUCCESS,
       response
     });
+    window.location.assign("/home");
   } catch (error) {
     yield put({
       type: Const.SIGNOUT_FAILURE,

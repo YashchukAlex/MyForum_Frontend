@@ -1,8 +1,9 @@
 import React, {Component,Fragment} from 'react';
 import {Navbar,Nav,Image} from "react-bootstrap";
 
-import logo from '../../../content/logo.svg';
-import ButtonUserName from '../../../containers/header/userInfo';
+import logo from '../../content/logo.svg';
+import Profile from '../../containers/header/userProfile.jsx';
+import AdminPanel from '../../containers/header/adminPanel.jsx';
 
 class Header extends Component {
   render() {
@@ -20,9 +21,8 @@ class Header extends Component {
             <Nav.Link href="features">Features</Nav.Link>
             <Nav.Link href="pricing">Pricing</Nav.Link>
           </Nav>
-          <Nav.Item className="align-content-end">
-            <ButtonUserName/>
-          </Nav.Item>
+          <AdminPanel/>
+          <Profile/>
         </Navbar>
       </Fragment>
     );

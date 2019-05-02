@@ -1,20 +1,24 @@
-import Axios from 'axios';
+import axios from 'axios';
 
 import { BASE_API } from '../constants/auth'
 
 // SignUp API request
-export const signUp = (data) => {
-  return Axios.post(`${BASE_API}`, {data})
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
+export const signUp = ({ login, email, password, confirmPassword }) => {
+  let params = {
+    'Login': login,
+    'Email': email,
+    'Password': password,
+    'ConfirmPassword': confirmPassword
+  }
+  return axios.post(`${ BASE_API }/api/Account/Register`, params)
+    .then(response => response.data)
+    .catch(error => {
+      throw error.response;
     });
 }
 
 // SignIn API request
-export const signIn = ({grant_type, username, password}) => {
+export const signIn = async ({ grant_type, username, password }) => {
   let params = {
     'grant_type': grant_type,
     'username': username,
@@ -29,7 +33,7 @@ export const signIn = ({grant_type, username, password}) => {
   }
   formBody = formBody.join("&");
 
-  return Axios.post(`${BASE_API}/Token`, formBody)
+  return await axios.post(`${BASE_API}/Token`, formBody)
     .then(response => response.data)
     .catch(error => {
       throw error.response;

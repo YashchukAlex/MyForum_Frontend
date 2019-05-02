@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Container, Form, Col, Button} from 'react-bootstrap';
-import {singInRequest} from '../../actions/auth';
+import { Container, Form, Col, Button } from 'react-bootstrap';
+import { singInRequest } from '../../actions/auth';
 
-import './signIn.css';
+import '../../content/basicForm.css';
 
 class SignIn extends Component {
   constructor(props) {
@@ -34,9 +34,9 @@ class SignIn extends Component {
   }
 
   render() {
-    const {userName, password} = this.state;
+    const { userName, password } = this.state;
     return (
-      <Container className="signIn">
+      <Container className="container">
         <h2>Sign In</h2>
         <Form className="form" onSubmit={(e) => this.submitForm(e)}>
           <Col>
@@ -63,10 +63,10 @@ class SignIn extends Component {
               />
             </Form.Group>
           </Col>
-          <Button variant="primary" type="submit">Submit</Button>
+          <Button variant="primary" type="submit">Send</Button>
         </Form>
       </Container>
     );
   }
 }
-export default connect(({auth}) => ({auth}), {singInRequest})(SignIn);
+export default connect(({ auth }) => ({ auth }), { singInRequest })(SignIn);

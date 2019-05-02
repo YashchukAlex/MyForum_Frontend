@@ -1,8 +1,15 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 
-const App = ({children}) => (
+import Header from './components/header/header';
+
+import './app.css';
+
+const App  = ({children}) => (
   <Fragment>
-   {children}
+    <Header/>
+    <div className="body">
+      {children}
+    </div>
   </Fragment>
 );
 

@@ -1,6 +1,6 @@
 import { SIGNIN_REQUEST, SIGNUP_REQUEST, SIGNOUT_REQUEST } from '../constants/auth';
 
-export function singInRequest({ grant_type, username, password }) {
+export const singInRequest = ({ grant_type, username, password })  => {
   return {
     type: SIGNIN_REQUEST,
     grant_type,
@@ -9,7 +9,7 @@ export function singInRequest({ grant_type, username, password }) {
   };
 }
 
-export function signUpRequest({ email ,login, password, confirmPassword}) {
+export const signUpRequest = ({ email , login, password, confirmPassword}) => {
   return {
     type: SIGNUP_REQUEST,
     email,
@@ -19,7 +19,7 @@ export function signUpRequest({ email ,login, password, confirmPassword}) {
   };
 }
 
-export function signOutRequest() {
+export const signOutRequest = () => {
   return {
     type: SIGNOUT_REQUEST
   };
